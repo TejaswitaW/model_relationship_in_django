@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from .models import Post,Page,Song,User
+
 # Create your views here.
 def home(request):
     return render(request,'myapp/home.html')
+    
 
 def show_user_data(request):
     data1 = User.objects.all()
@@ -24,6 +26,8 @@ def show_post_data(request):
     data3 = Post.objects.filter(user__username='kush')
     return render(request,'myapp/post.html',
                   {'data1':data1,'data2':data2,'data3':data3})
+
+
 def show_page_data(request):
     data1 = Page.objects.all()
     data2 = Page.objects.filter(page_cat='Programming')
